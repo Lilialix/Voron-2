@@ -1,8 +1,8 @@
 [server]
-host = 0.0.0.0
+host = 127.0.0.1
 port = 7125
 max_upload_size = 1024
-klippy_uds_address = ~/printer_data/comms/klippy.sock
+klippy_uds_address = /home/biqu/printer_data/comms/klippy.sock
 
 [file_manager]
 enable_object_processing = True
@@ -120,4 +120,24 @@ requirements = requirements.txt
 system_dependencies = system-dependencies.json
 primary_branch = main
 managed_services = klipper
+
+[update_manager cartographer]
+type = git_repo
+path = ~/cartographer-klipper
+channel = stable
+origin = https://github.com/Cartographer3D/cartographer-klipper.git
+is_system_service = False
+managed_services = klipper
+info_tags = 
+	desc=Cartographer Probe
+
+[update_manager afc-software]
+type = git_repo
+path = ~/AFC-Klipper-Add-On
+origin = https://github.com/ArmoredTurtle/AFC-Klipper-Add-On.git
+managed_services = klipper
+primary_branch = main
+is_system_service = False
+info_tags = 
+	desc=AFC Klipper Add On
 
